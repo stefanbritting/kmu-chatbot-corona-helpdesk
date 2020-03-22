@@ -1,4 +1,4 @@
-This repository hold a node.js application providing a simple frontend & Interface for an IBM Watson Assistent. The Assistant should be configured by yourself inside the IBM Cloud Portal.
+This repository holds a node.js application providing a simple frontend & Interface for an IBM Watson Assistent. The Assistant should be configured by yourself inside the IBM Cloud Portal.
 
 ## Configure the Chatbot: IBM Watson Assistant
 
