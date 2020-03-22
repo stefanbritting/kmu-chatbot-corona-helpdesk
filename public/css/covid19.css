@@ -71,7 +71,7 @@ path.a{
 		margin-right: auto;
 	}
 	#contentParent{
-		height: 86%;
+		height: calc(100% - 100px);
 	}
 }
 
@@ -82,10 +82,32 @@ path.a{
 	#foot{
 		padding: 0px;
 	}
+	#chat-column-holder{
+		margin-bottom: 1em;
+	}
 }
 
 @media screen and (max-height: 500px) and (max-width: 800px){
+	.chat-column{
+		margin-left: 1em;
+	}
+	#foot{
+		top: 0;
+		left: 80%;
+		width: 20%;
+		line-height: 2em;
+		height: min-content;
+	}
+	#virus2{
+		top: 25%;
+	}
+	#virus3{
+		display: none;
+	}
+	#logo{
+		margin-left: 1em;
+	}
 	body{
-		background-color: blue;
+		overflow-y: scroll;
 	}
 }
