@@ -4,17 +4,23 @@ This repository holds a node.js application providing a simple frontend & Interf
 
 1. Go to https://cloud.ibm.com/
 2. Set up an IBM Watson Assistant (https://cloud.ibm.com/docs/assistant?topic=assistant-getting-started)
-3. Get its API credentials for the application
+3. Note its API credentials for the application
 
 ## Configuring the application
 
-1. In the application folder, copy the *.env.example* file and create a file called *.env*
+1. In the application folder, create a file called ".env"
 
-    ```
-    cp .env.example .env
-    ```
+2. Add API credentials as environment variables
 
-3. Open the *.env* file and update the credentials that you can take from IBM Watson (cloud.ibm.com). 
+    '''
+    # Environment variables
+    ASSISTANT_ID=
+
+    #IAM API key and URL
+    ASSISTANT_IAM_APIKEY=
+    ASSISTANT_URL
+
+    '''
 
 ## Running locally
 
@@ -31,3 +37,5 @@ This repository holds a node.js application providing a simple frontend & Interf
     ```
 
 1. View the application in a browser at `localhost:3000`
+
+
