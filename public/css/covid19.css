@@ -41,8 +41,15 @@
 	width: 7em;
 }
 
-path.a{
-	fill: red;
+.from-watson ul{
+	background-color: #FFF;
+	color: black;
+	border-radius: 0.5em;
+	border: 2ps solid black;
+}
+
+.from-watson .options-list{
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1340px){
@@ -71,7 +78,7 @@ path.a{
 		margin-right: auto;
 	}
 	#contentParent{
-		height: 86%;
+		height: calc(100% - 100px);
 	}
 }
 
@@ -82,10 +89,32 @@ path.a{
 	#foot{
 		padding: 0px;
 	}
+	#chat-column-holder{
+		margin-bottom: 1em;
+	}
 }
 
 @media screen and (max-height: 500px) and (max-width: 800px){
+	.chat-column{
+		margin-left: 1em;
+	}
+	#foot{
+		top: 0;
+		left: 80%;
+		width: 20%;
+		line-height: 2em;
+		height: min-content;
+	}
+	#virus2{
+		top: 25%;
+	}
+	#virus3{
+		display: none;
+	}
+	#logo{
+		margin-left: 1em;
+	}
 	body{
-		background-color: blue;
+		overflow-y: scroll;
 	}
 }
