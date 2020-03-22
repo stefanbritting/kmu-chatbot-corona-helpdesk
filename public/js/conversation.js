@@ -158,7 +158,7 @@ var ConversationPanel = (function () {
       } else {
         var userTypringField = document.getElementById('user-typing-field');
         if (res.typing) {
-          userTypringField.innerHTML = 'Don Cupón is typing...';
+          userTypringField.innerHTML = 'CRAFT-Bot schreibt...';
         }
         setTimeout(function () {
           userTypringField.innerHTML = '';

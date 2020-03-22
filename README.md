@@ -1,14 +1,14 @@
-Repository for the work done in my Masters program, term 1, competition "IBM Watson Challenge". Master in Business Analytics and Big Data, April 2019 intake. Instituto de Empresa, School of Human Sciences and Technology. Madrid, Spain. 
+This repository holds a node.js application providing a simple frontend & Interface for an IBM Watson Assistent. The Assistant should be configured by yourself inside the IBM Cloud Portal.
 
-The repository contains Node.js application, that serves as an interface for chatbot developed in IBM Watson. 
+## Configure the Chatbot: IBM Watson Assistant
+
+1. Go to https://cloud.ibm.com/
+2. Set up an IBM Watson Assistant (https://cloud.ibm.com/docs/assistant?topic=assistant-getting-started)
+3. Get its API credentials for the application
 
 ## Configuring the application
 
-1. Import IBM Watson skill to your IBM Watson assistant instance. JSON file is located here:
-
-    `<project_root>/skill-json-file/skill-teamD.json`
-
-2. In the application folder, copy the *.env.example* file and create a file called *.env*
+1. In the application folder, copy the *.env.example* file and create a file called *.env*
 
     ```
     cp .env.example .env
