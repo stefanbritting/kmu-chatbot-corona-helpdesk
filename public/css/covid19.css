@@ -41,8 +41,15 @@
 	width: 7em;
 }
 
-path.a{
-	fill: red;
+.from-watson ul{
+	background-color: #FFF;
+	color: black;
+	border-radius: 0.5em;
+	border: 2ps solid black;
+}
+
+.from-watson .options-list{
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1340px){
