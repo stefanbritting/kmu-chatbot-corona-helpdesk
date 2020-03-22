@@ -1,6 +1,10 @@
 #foot{
 	text-align: center;
 	padding: 1em;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background-color: #f4f4f4b8;
 }
 
 #foot a{
@@ -15,6 +19,32 @@
 	top: 1em;
 }
 
+.virus{
+	z-index: -1;
+	position: absolute;
+}
+
+#virus1{
+	top: 60%;
+	left: 80%;
+}
+
+#virus2{
+	top: 50%;
+	left: 65%;
+	width: 10em;
+}
+
+#virus3{
+	top: 45%;
+	left: 80%;
+	width: 7em;
+}
+
+path.a{
+	fill: red;
+}
+
 @media screen and (max-width: 1340px){
 	#logo{
 		width: 20em;
@@ -23,7 +53,10 @@
 
 @media screen and (max-width: 1100px){
 	.chat-column{
-		margin-right: 1em;
+		margin-right: 4em;
+	}
+	#virus3{
+		top: 20%;
 	}
 }
 
@@ -39,5 +72,20 @@
 	}
 	#contentParent{
 		height: 86%;
+	}
+}
+
+@media screen and (max-height: 610px){
+	#virus1{
+		display: none;
+	}
+	#foot{
+		padding: 0px;
+	}
+}
+
+@media screen and (max-height: 500px) and (max-width: 800px){
+	body{
+		background-color: blue;
 	}
 }
