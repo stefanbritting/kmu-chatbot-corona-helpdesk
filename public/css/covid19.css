@@ -1,0 +1,43 @@
+#foot{
+	text-align: center;
+	padding: 1em;
+}
+
+#foot a{
+	text-decoration: none;
+	color: #707070;
+	margin: 0.5em;
+}
+
+#logo {
+	position: absolute;
+	left: 1em;
+	top: 1em;
+}
+
+@media screen and (max-width: 1340px){
+	#logo{
+		width: 20em;
+	}
+}
+
+@media screen and (max-width: 1100px){
+	.chat-column{
+		margin-right: 1em;
+	}
+}
+
+@media screen and (max-width: 800px){
+	#logo{
+		position: initial;
+		display: block;
+		margin: auto;
+		margin-top: 0.5em;
+	}
+	.chat-column{
+		margin-right: auto;
+	}
+	#contentParent{
+		height: 86%;
+	}
+}
