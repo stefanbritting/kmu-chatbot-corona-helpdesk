@@ -176,7 +176,7 @@ div {
 
 .from-watson p {
   margin: 0.3125rem;
-  padding: 0 1.25rem;
+  padding: 0.5em 1.25rem;
 }
 
 .from-watson.latest.top:before {
