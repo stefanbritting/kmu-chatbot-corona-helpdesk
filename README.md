@@ -12,15 +12,14 @@ This repository holds a node.js application providing a simple frontend & Interf
 
 2. Add API credentials as environment variables
 
-    '''
+    ```
     # Environment variables
     ASSISTANT_ID=
 
     #IAM API key and URL
     ASSISTANT_IAM_APIKEY=
     ASSISTANT_URL
-
-    '''
+    ```
 
 ## Running locally
 
