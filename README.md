@@ -18,7 +18,7 @@ This repository holds a node.js application providing a simple frontend & Interf
 
     #IAM API key and URL
     ASSISTANT_IAM_APIKEY=
-    ASSISTANT_URL
+    ASSISTANT_URL=
     ```
 
 ## Running locally
