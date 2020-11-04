@@ -1,60 +1,38 @@
 <html>
-<head>
-  <title>Covid-19 Hilfe Chatbot</title>
-  <meta charset="UTF-8">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/covid19.css">
-</head>
-
+  <h1>Watson Test</h1>
+  <script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "22f9a817-caf2-4c83-b42e-af7f33917044", // The ID of this integration.
+        region: "eu-de", // The region your integration is hosted in.
+        serviceInstanceID: "3485754f-e9b6-45bd-8db8-f248f8435c32", // The ID of your service instance.
+        onLoad: function(instance) { 
+          // Instance method to adjust specific CSS variables
+          instance.updateCSSVariables({
+            '$ui-background': '#EDF4FA', // chatwindow background
+            '$active-primary': '#57A0FC',// should be same as interactive-01
+            '$focus': '#57A0FC', //border of "type something" field
+            '$hover-primary': '#95E2F1',//icon bg in corner color when hover
+            '$interactive-01': '#57A0FC', //icon bg in corner color
+            //'$text-01': '#57A0FC' //text color of chatbot messages
+          });
+          instance.updateLocale('de').then(async function() { //chaning "type something" to german
+            result  = await fetch("https://gorest.co.in/public-api/posts") //replace with craftbot PI
+            data    = await result.json()
+            console.log(data.data[1].id)
+            if (data.data[1].id===3){
+              instance.render();
+            }
+          });
+         }
+      };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
 <body>
-	<img id="logo" src="img/Logo_Projekt_01.svg">
-<div id="contentParent" class="responsive-columns-wrapper">
-	<div id="chat-column-holder" class="responsive-column content-column">
-		<div class="chat-column">
-			<div id="scrollingChat">
-		</div>
-		<p class="user-typing" id="user-typing-field"></p>
-		<label for="textInput" class="inputOutline">
-			<input id="textInput" class="input responsive-column" placeholder="Type here" type="text" onkeydown="ConversationPanel.inputKeyDown(event, this)" autofocus>
-		</label>
-		</div>
-	</div>
-	<div id="payload-column" class="fixed-column content-column" style="display:none;">
-		<div style='visibility:hidden'>
-			<div id="payload-initial-message">
-				Hier schreiben bitte
-			</div>
-			<div id="payload-request" class="payload"></div>
-			<div id="payload-response" class="payload"></div>
-		</div>
-	</div>
-</div>
-	<div id="foot">
-		<a href="https://handwerk-cloppenburg.de/datenschutz.php">Datenschutz</a>
-		<a href="#">Home</a>
-		<a href="https://handwerk-cloppenburg.de/impressum.php">Impressum</a>
-	</div>
-	<div id="virus-container">
-		<object type="image/svg+xml" data="img/coronavirus.svg" class="virus" id="virus1">
-		</object>
-		<object type="image/svg+xml" data="img/coronavirus.svg" class="virus" id="virus2">
-		</object>
-		<object type="image/svg+xml" data="img/coronavirus.svg" class="virus" id="virus3">
-		</object>
-	</div>
-  
-	
 
-  <script src="js/common.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/conversation.js"></script>
-  <script src="js/payload.js"></script>
-  <script src="js/global.js"></script>
-  <script type="text/javascript" src="https://cdn.rawgit.com/watson-developer-cloud/watson-developer-cloud.github.io/master/analytics.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
