@@ -1,38 +1,47 @@
 <html>
   <h1>Watson Test</h1>
   <script>
-    window.watsonAssistantChatOptions = {
-        integrationID: "22f9a817-caf2-4c83-b42e-af7f33917044", // The ID of this integration.
-        region: "eu-de", // The region your integration is hosted in.
-        serviceInstanceID: "3485754f-e9b6-45bd-8db8-f248f8435c32", // The ID of your service instance.
-        onLoad: function(instance) { 
-          // Instance method to adjust specific CSS variables
-          instance.updateCSSVariables({
-            '$ui-background': '#EDF4FA', // chatwindow background
-            '$active-primary': '#57A0FC',// should be same as interactive-01
-            '$focus': '#57A0FC', //border of "type something" field
-            '$hover-primary': '#95E2F1',//icon bg in corner color when hover
-            '$interactive-01': '#57A0FC', //icon bg in corner color
-            //'$text-01': '#57A0FC' //text color of chatbot messages
-          });
-          instance.updateLocale('de').then(async function() { //chaning "type something" to german
-            result  = await fetch("https://gorest.co.in/public-api/posts") //replace with craftbot PI
-            data    = await result.json()
-            console.log(data.data[1].id)
-            if (data.data[1].id===3){
-              instance.render();
-            }
-          });
-         }
-      };
-    setTimeout(function(){
-      const t=document.createElement('script');
-      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
-      document.head.appendChild(t);
-    });
+    async function prepare_watson() {
+      org_id = "32432ds";
+      res = await fetch("http://craftbot-env.eba-8ptusy3n.eu-central-1.elasticbeanstalk.com/ccl/"+ org_id)
+      context = await res.json()
+      return context
+    };
+    //setting context in preSendhandler
+    function preSendhandler(event) {
+        // set context
+        event.data.context.skills['main skill'].user_defined.package = context.package_id;
+      }
+      prepare_watson().then( context => {
+        window.watsonAssistantChatOptions = {
+          integrationID: context.watson_integration_id, // The ID of this integration.
+          region: "eu-de", // The region your integration is hosted in.
+          serviceInstanceID: context.watson_service_instance_id, // The ID of your service instance.
+          onLoad: function(instance) { 
+            // Instance method to adjust specific CSS variables
+            instance.updateCSSVariables({
+              '$ui-background': '#EDF4FA', // chatwindow background
+              '$active-primary': '#57A0FC',// should be same as interactive-01
+              '$focus': '#57A0FC', //border of "type something" field
+              '$hover-primary': '#95E2F1',//icon bg in corner color when hover
+              '$interactive-01': '#57A0FC', //icon bg in corner color
+              //'$text-01': '#57A0FC' //text color of chatbot messages
+            });
+            instance.updateLocale('de').then(async function() {
+                // Subscribe to the "pre:send" event.
+                instance.on({ type: "pre:send", handler: preSendhandler });
+                instance.render();
+            });
+          }
+        }
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+          document.head.appendChild(t);
+        });
+  })
   </script>
 <body>
-
 
 </body>
 </html>
