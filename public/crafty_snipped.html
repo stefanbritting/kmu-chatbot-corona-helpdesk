@@ -1,26 +1,17 @@
 <html>
   <h1>Watson Test</h1>
   <script>
-    async function prepare_watson() {
-      org_id = "63723es";
-      res = await fetch("https://cloud.craft-bot.de/ccl/"+ org_id)
-      context = await res.json()
-      return context
-    };
+    
     //setting context in preSendhandler
     function preSendhandler(event) {
         // set context
-        event.data.context.skills['main skill'].user_defined.package = context.package_id;
-        event.data.context.skills['main skill'].user_defined.org_id = context.org_id;
-      };
-      function sendhandler(event) {
-        res = fetch("https://cloud.craft-bot.de/icc/"+ org_id, {method: "POST"})
+        event.data.context.skills['main skill'].user_defined.package = "69sch7-VB";
       }
-      prepare_watson().then( context => {
+
         window.watsonAssistantChatOptions = {
-          integrationID: context.watson_integration_id, // The ID of this integration.
+          integrationID: "621cfe0c-522f-48cd-888d-8124add906c6", // The ID of this integration.
           region: "eu-de", // The region your integration is hosted in.
-          serviceInstanceID: context.watson_service_instance_id, // The ID of your service instance.
+          serviceInstanceID: "3485754f-e9b6-45bd-8db8-f248f8435c32", // The ID of your service instance.
           onLoad: function(instance) { 
             // Instance method to adjust specific CSS variables
             instance.updateCSSVariables({
@@ -34,8 +25,6 @@
             instance.updateLocale('de').then(async function() {
                 // Subscribe to the "pre:send" event.
                 instance.on({ type: "pre:send", handler: preSendhandler });
-                // only fires the event once when the second message comes from assistant
-                instance.once({ type: "receive", handler: sendhandler });
                 instance.render();
             });
           }
@@ -45,8 +34,8 @@
           t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
           document.head.appendChild(t);
         });
-    })
-    </script>
+  
+  </script>
 <body>
 
 </body>
